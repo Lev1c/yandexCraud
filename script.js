@@ -145,6 +145,19 @@ document.addEventListener('DOMContentLoaded', () => {
         indicators.forEach((indicator, index) => {
             indicator.classList.toggle('indicator-active', index === currentIndex);
         });
+
+        // Блокируем/разблокируем кнопки в зависимости от текущего индекса
+        if (currentIndex === 0) {
+            prevButton.classList.add('button-disabled')
+        } else {
+            prevButton.classList.remove('button-disabled')
+        }
+
+        if (currentIndex === slides.length - 1) {
+            nextButton.classList.add('button-disabled')
+        } else {
+            nextButton.classList.remove('button-disabled');
+        }
     }
 
     function goToSlide(index) {
@@ -153,13 +166,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     prevButton.addEventListener('click', () => {
-        currentIndex = (currentIndex > 0) ? currentIndex - 1 : slides.length - 1;
-        updateCarousel();
+        if (currentIndex > 0) {
+            currentIndex--;
+            updateCarousel();
+        }
     });
 
     nextButton.addEventListener('click', () => {
-        currentIndex = (currentIndex < slides.length - 1) ? currentIndex + 1 : 0;
-        updateCarousel();
+        if (currentIndex < slides.length - 1) {
+            currentIndex++;
+            updateCarousel();
+        }
     });
 
     indicators.forEach((indicator, index) => {

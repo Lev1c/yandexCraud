@@ -434,6 +434,14 @@ body {
     transition: 0.2s;
 }
 
+.button-disabled {
+    background-color: #31313133;
+}
+
+.button-disabled:hover {
+    background-color: #31313133;
+}
+
 .title-number p {
     font-family: "Golos Text", sans-serif;
     font-weight: 400;
@@ -552,6 +560,10 @@ footer p {
 }
 
 .card-block-img-mobile {
+    display: none;
+}
+
+.card-block-mobile {
     display: none;
 }
 
@@ -903,10 +915,6 @@ footer p {
     .support-block-table {
         margin-left: 0;
     }
-}
-
-.card-block-mobile {
-    display: none;
 }
 
 .indicators {
